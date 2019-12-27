@@ -1,0 +1,7 @@
+dubbo:
+  port: 20880
+  zookeeper: 192.168.61.154:2181
+  group: xiaoming
+
+server:
+  port: 8088

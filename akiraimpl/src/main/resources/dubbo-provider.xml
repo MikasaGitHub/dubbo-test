@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="akiraimpl"/>
+
+    <dubbo:registry protocol="zookeeper" address="${dubbo.zookeeper}" file="./dubbo-registry.properties"/>
+
+    <dubbo:protocol name="dubbo" port="${dubbo.port}"/>
+
+    <dubbo:provider group="${dubbo.group}" timeout="30000" retries="0"/>
+    <!--<dubbo:provider timeout="30000" retries="0" filter="lock"/>-->
+    <dubbo:service interface="com.dubbo.api.service.ICostService" ref="costService"/>
+</beans>
